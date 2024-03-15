@@ -1,11 +1,13 @@
 ﻿using APIDemo.BAL;
 using APIDemo.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace APIDemo.Controllers
 {
 	[ApiController]
 	[Route("api/[controller]/[action]")]
+	[Authorize]
 	public class PersonController : Controller
 	{
 		#region Get All Persons
@@ -31,7 +33,6 @@ namespace APIDemo.Controllers
 			}
 		}
 		#endregion
-
 		#region Get Person By PersonID
 		[HttpGet("{PersonID}")]
 		public IActionResult Get(int PersonID)
